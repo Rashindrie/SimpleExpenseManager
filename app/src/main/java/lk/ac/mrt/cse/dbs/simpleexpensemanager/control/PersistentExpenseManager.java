@@ -26,7 +26,10 @@ public class PersistentExpenseManager extends ExpenseManager{
         SQLiteDatabase mydatabase = context.openOrCreateDatabase("140449V",Context.MODE_PRIVATE ,null);
 
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Account(Account_no VARCHAR PRIMARY KEY,Bank_name VARCHAR,account_holder_name VARCHAR,Balance REAL);");
-        //mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Transaction()");
+
+        //could not name this table as 'Transaction" since 'Transaction' is a key word
+        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TransactionLedger(Transaction_id INTEGER PRIMARY KEY,Account_no VARCHAR,Expense_type INT,Amount REAL,date DATE,FOREIGN KEY (Account_no) REFERENCES Account(Account_no));");
+
 
 
     }
