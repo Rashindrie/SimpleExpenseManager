@@ -1,0 +1,7 @@
+#Sun Nov 20 20:25:50 IST 2016
+base.0=D\:\\Academic Material\\Semester 4\\DBMS\\SimpleExpenseManager\\SimpleExpenseManager\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_89308ea04fafd2c359b1882a005a450a54f78c6f
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\Academic Material\\Semester 4\\DBMS\\SimpleExpenseManager\\SimpleExpenseManager\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a37aeb8847c3809e3aa88629c986a4b50eac8123\\classes.dex
+base.1=D\:\\Academic Material\\Semester 4\\DBMS\\SimpleExpenseManager\\SimpleExpenseManager\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_a37aeb8847c3809e3aa88629c986a4b50eac8123
+file.0=D\:\\Academic Material\\Semester 4\\DBMS\\SimpleExpenseManager\\SimpleExpenseManager\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_89308ea04fafd2c359b1882a005a450a54f78c6f\\classes.dex

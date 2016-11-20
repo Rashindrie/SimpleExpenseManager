@@ -28,6 +28,7 @@ import android.support.v7.widget.Toolbar;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.R;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentExpenseManager;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.exception.ExpenseManagerException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         /***  Begin generating dummy data ***/
-        expenseManager = new PersistentExpenseManager(getApplicationContext());
+        try {
+            expenseManager = new PersistentExpenseManager(getApplicationContext());
+        } catch (ExpenseManagerException e) {
+            e.printStackTrace();
+        }
         /*** END ***/
     }
 
