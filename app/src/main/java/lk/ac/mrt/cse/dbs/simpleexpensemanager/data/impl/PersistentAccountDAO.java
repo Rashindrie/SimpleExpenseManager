@@ -47,7 +47,7 @@ public class PersistentAccountDAO implements AccountDAO {
     public List<Account> getAccountsList() {
 
         Cursor resultSet = db.rawQuery("SELECT * FROM Account",null);
-        List<Account> acc_list = new ArrayList<>();
+        List<Account> acc_list = new ArrayList<Account>();
 
 
         if(resultSet.moveToFirst()) {

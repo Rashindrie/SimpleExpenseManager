@@ -26,7 +26,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
     @Override
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
 
-        String sqlquery = "INSERT INTO TransactionLedger (Account_no,Expense_type,Amount,date) VALUES (?,?,?,?)";
+        String sqlquery = "INSERT INTO TransactionLedger (Account_no,Expense_type,Amount,Date) VALUES (?,?,?,?)";
         SQLiteStatement statement = db.compileStatement(sqlquery);
 
         statement.bindString(1,accountNo);
@@ -44,7 +44,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
         if(resultSet.moveToFirst()) {
             do{
-                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("date"))),
+                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("Date"))),
                 resultSet.getString(resultSet.getColumnIndex("Account_no")),
                 (resultSet.getInt(resultSet.getColumnIndex("Expense_type")) == 1) ? ExpenseType.INCOME : ExpenseType.EXPENSE,
                  resultSet.getDouble(resultSet.getColumnIndex("Amount")));
@@ -57,16 +57,16 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
     @Override
     public List<Transaction> getPaginatedTransactionLogs(int limit) {
-        Cursor resultSet = db.rawQuery("SELECT * FROM Transactionledger LIMIT " + limit,null);
+        Cursor resultSet = db.rawQuery("SELECT * FROM Transactionledger LIMIT " + limit, null);
         List<Transaction> tr_list = new ArrayList<>();
 
         if(resultSet.moveToFirst()) {
             do {
-                Transaction t = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("Log_date"))),
+                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("Date"))),
                 resultSet.getString(resultSet.getColumnIndex("Account_no")),
                 (resultSet.getInt(resultSet.getColumnIndex("Expense_type")) == 1) ? ExpenseType.INCOME : ExpenseType.EXPENSE,
                 resultSet.getDouble(resultSet.getColumnIndex("Amount")));
-                tr_list.add(t);
+                tr_list.add(transaction);
             } while (resultSet.moveToNext());
         }
 
