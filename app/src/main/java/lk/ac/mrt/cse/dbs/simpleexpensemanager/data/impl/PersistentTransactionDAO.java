@@ -1,4 +1,4 @@
-package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
+package lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
