@@ -16,9 +16,14 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.PersistentTransactionDAO
 
 public class PersistentExpenseManager extends ExpenseManager{
     private Context context;
-    public PersistentExpenseManager(Context context){
+
+    public PersistentExpenseManager(Context context) throws ExpenseManagerException {
         this.context=context;
-        
+        try {
+            setup();
+        } catch (ExpenseManagerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
