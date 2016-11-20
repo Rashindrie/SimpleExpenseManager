@@ -36,9 +36,8 @@ public class PersistentAccountDAO implements AccountDAO {
 
         //Extract account information by looping through the results and adding the needed data to the list
         if(resultSet.moveToFirst()) {
-            while (resultSet.moveToNext()) {
-                acc_list.add(resultSet.getString(resultSet.getColumnIndex("Accout_no")));
-            }
+            while (resultSet.moveToNext())
+                acc_list.add(resultSet.getString(resultSet.getColumnIndex("Account_no")));
         }
         return acc_list;
     }

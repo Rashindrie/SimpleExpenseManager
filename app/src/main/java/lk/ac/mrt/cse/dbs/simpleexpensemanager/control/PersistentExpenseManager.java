@@ -35,7 +35,7 @@ public class PersistentExpenseManager extends ExpenseManager{
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Account(Account_no VARCHAR PRIMARY KEY,Bank_name VARCHAR,Account_holder_name VARCHAR,Balance REAL);");
 
         //could not name this table as 'Transaction" since 'Transaction' is a key word
-        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TransactionLedger(Transaction_id INTEGER PRIMARY KEY,Account_no VARCHAR,Expense_type INT,Amount REAL,Date DATE,FOREIGN KEY (Account_no) REFERENCES Account(Account_no));");
+        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS TransactionLedger(Transaction_id INTEGER PRIMARY KEY,Account_no VARCHAR,Expense_type INT,Amount REAL,t_date DATE,FOREIGN KEY (Account_no) REFERENCES Account(Account_no));");
 
         PersistentAccountDAO accountDAO = new PersistentAccountDAO(mydatabase);
         setAccountsDAO(accountDAO);

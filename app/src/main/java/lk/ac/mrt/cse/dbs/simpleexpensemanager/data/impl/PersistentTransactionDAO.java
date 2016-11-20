@@ -26,7 +26,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
     @Override
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount) {
 
-        String sqlquery = "INSERT INTO TransactionLedger (Account_no,Expense_type,Amount,Date) VALUES (?,?,?,?)";
+        String sqlquery = "INSERT INTO TransactionLedger (Account_no,Expense_type,Amount,t_date) VALUES (?,?,?,?)";
         SQLiteStatement statement = db.compileStatement(sqlquery);
 
         statement.bindString(1,accountNo);
@@ -44,7 +44,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
         if(resultSet.moveToFirst()) {
             do{
-                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("Date"))),
+                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("t_date"))),
                 resultSet.getString(resultSet.getColumnIndex("Account_no")),
                 (resultSet.getInt(resultSet.getColumnIndex("Expense_type")) == 1) ? ExpenseType.INCOME : ExpenseType.EXPENSE,
                  resultSet.getDouble(resultSet.getColumnIndex("Amount")));
@@ -62,7 +62,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
         if(resultSet.moveToFirst()) {
             do {
-                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("Date"))),
+                Transaction transaction = new Transaction(new Date(resultSet.getLong(resultSet.getColumnIndex("t_date"))),
                 resultSet.getString(resultSet.getColumnIndex("Account_no")),
                 (resultSet.getInt(resultSet.getColumnIndex("Expense_type")) == 1) ? ExpenseType.INCOME : ExpenseType.EXPENSE,
                 resultSet.getDouble(resultSet.getColumnIndex("Amount")));
