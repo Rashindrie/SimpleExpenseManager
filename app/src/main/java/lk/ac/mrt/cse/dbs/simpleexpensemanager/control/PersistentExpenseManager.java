@@ -19,11 +19,8 @@ public class PersistentExpenseManager extends ExpenseManager{
 
     public PersistentExpenseManager(Context context) throws ExpenseManagerException {
         this.context=context;
-        try {
-            setup();
-        } catch (ExpenseManagerException e) {
-            e.printStackTrace();
-        }
+        setup();
+
     }
 
     @Override
